@@ -1,1 +1,141 @@
-<p>newsletter works!</p>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Social Media Feed</h1>
+    <p class="hero-subtitle">Stay updated with our latest posts from Instagram and LinkedIn</p>
+    <button class="refresh-btn" (click)="refreshFeed()" [disabled]="loading">
+      <i class="pi pi-refresh" [class.spinning]="loading"></i>
+      Refresh Feed
+    </button>
+  </div>
+</section>
+
+<!-- Social Media Feed Section -->
+<section class="feed-section">
+  <div class="container">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-container">
+      <div class="loading-spinner">
+        <i class="pi pi-spin pi-spinner"></i>
+      </div>
+      <p class="loading-text">Loading social media posts...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="error-container">
+      <div class="error-icon">
+        <i class="pi pi-exclamation-triangle"></i>
+      </div>
+      <p class="error-text">{{ error }}</p>
+      <button class="retry-btn" (click)="refreshFeed()">
+        <i class="pi pi-refresh"></i>
+        Try Again
+      </button>
+    </div>
+
+    <!-- Feed Content -->
+    <div *ngIf="!loading && !error" class="feed-container">
+      <div class="feed-header">
+        <h2 class="feed-title">Latest Posts</h2>
+        <div class="feed-stats">
+          <span class="post-count">{{ socialPosts.length }} posts</span>
+          <div class="platform-filters">
+            <button class="filter-btn active">
+              <i class="pi pi-globe"></i>
+              All
+            </button>
+            <button class="filter-btn">
+              <i class="pi pi-instagram"></i>
+              Instagram
+            </button>
+            <button class="filter-btn">
+              <i class="pi pi-linkedin"></i>
+              LinkedIn
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="posts-grid">
+        <article class="post-card" *ngFor="let post of socialPosts; trackBy: trackByPostId">
+          <!-- Post Header -->
+          <div class="post-header">
+            <div class="author-info">
+              <img [src]="post.author.profileImage" [alt]="post.author.name" class="author-avatar">
+              <div class="author-details">
+                <h3 class="author-name">{{ post.author.name }}</h3>
+                <p class="author-username">{{ post.author.username }}</p>
+              </div>
+            </div>
+            <div class="post-meta">
+              <div class="platform-badge" [style.background-color]="getPlatformColor(post.platform)">
+                <i [class]="getPlatformIcon(post.platform)"></i>
+                {{ post.platform | titlecase }}
+              </div>
+              <span class="post-time">{{ formatDate(post.publishedAt) }}</span>
+            </div>
+          </div>
+
+          <!-- Post Content -->
+          <div class="post-content">
+            <p class="post-text">{{ post.content }}</p>
+            <div *ngIf="post.imageUrl" class="post-media">
+              <img [src]="post.imageUrl" [alt]="'Post image'" class="post-image">
+            </div>
+          </div>
+
+          <!-- Post Engagement -->
+          <div class="post-engagement">
+            <div class="engagement-stats">
+              <div class="stat-item">
+                <i class="pi pi-heart"></i>
+                <span>{{ post.engagement.likes }}</span>
+              </div>
+              <div class="stat-item">
+                <i class="pi pi-comment"></i>
+                <span>{{ post.engagement.comments }}</span>
+              </div>
+              <div *ngIf="post.engagement.shares" class="stat-item">
+                <i class="pi pi-share-alt"></i>
+                <span>{{ post.engagement.shares }}</span>
+              </div>
+            </div>
+            <a [href]="post.postUrl" target="_blank" rel="noopener noreferrer" class="view-post-btn">
+              <i class="pi pi-external-link"></i>
+              View Post
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="socialPosts.length === 0" class="empty-state">
+        <div class="empty-icon">
+          <i class="pi pi-inbox"></i>
+        </div>
+        <h3 class="empty-title">No posts found</h3>
+        <p class="empty-text">Check back later for new content from our social media channels.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Subscription Section -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2 class="newsletter-title">Stay Connected</h2>
+      <p class="newsletter-subtitle">Subscribe to our newsletter for exclusive content and updates</p>
+      <div class="newsletter-form">
+        <div class="form-group">
+          <input type="email" placeholder="Enter your email address" class="email-input">
+          <button class="subscribe-btn">
+            <i class="pi pi-send"></i>
+            Subscribe
+          </button>
+        </div>
+        <p class="newsletter-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </div>
+</section>

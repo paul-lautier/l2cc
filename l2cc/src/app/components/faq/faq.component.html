@@ -1,1 +1,54 @@
-<p>faq works!</p>
+<div class="faq-container">
+  <!-- Hero Section -->
+  <section class="faq-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Frequently Asked Questions</h1>
+        <p class="hero-subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-content">
+        <div class="section-intro">
+          <h2 class="section-title">Common Questions</h2>
+          <p class="section-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+        </div>
+
+        <div class="accordion-wrapper">
+          <p-accordion [multiple]="true" class="custom-accordion">
+            <p-accordionTab 
+              *ngFor="let item of faqItems; let i = index" 
+              [header]="item.question"
+              [selected]="i === 0"
+              class="faq-tab">
+              <div class="faq-answer">
+                <p>{{ item.answer }}</p>
+              </div>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="faq-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Still Have Questions?</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href="/contact" class="cta-button">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</div>
