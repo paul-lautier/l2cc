@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { InputMaskModule } from 'primeng/inputmask';
+import { IftaLabelModule } from 'primeng/iftalabel';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+
 
 
 interface ContactFormData {
@@ -13,7 +18,7 @@ interface ContactFormData {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,InputMaskModule,IftaLabelModule,DialogModule,ButtonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -28,8 +33,7 @@ export class ContactComponent {
   onSubmit() {
     if (this.isFormValid()) {
       console.log('Form submitted:', this.formData);
-      // Here you would typically send the data to a service
-      alert('Thank you for your message! We will get back to you soon.');
+      alert('Merci pour votre message, je reviendrais vers vous le plus vite possible.');
       this.resetForm();
     }
   }
@@ -45,5 +49,37 @@ export class ContactComponent {
       email: '',
       message: ''
     };
+  }
+
+  onPhoneKeyPress(event: KeyboardEvent): void {
+    const allowedChars = /[0-9]/;
+    const key = event.key;
+    const target = event.target as HTMLInputElement;
+    const currentValue = target.value;
+    
+
+    if (['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight'].includes(key)) {
+      return;
+    }
+    
+
+    if (!allowedChars.test(key)) {
+      event.preventDefault();
+      return;
+    }
+  
+
+    const numbersOnly = currentValue.replace(/\s/g, '');
+    if (numbersOnly.length >= 10) {
+      event.preventDefault();
+      return;
+    }
+    setTimeout(() => {
+      const value = target.value.replace(/\s/g, ''); // Remove existing spaces
+      const formatted = value.replace(/(\d{2})(?=\d)/g, '$1 '); // Add space every 2 digits
+      target.value = formatted;
+      this.formData.phone = formatted;
+    }, 0);
+   
   }
 }

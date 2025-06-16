@@ -1,1 +1,42 @@
-<p>blog works!</p>
+<div class="blog-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="blog-content">
+      <h1 class="blog-title">Blog & Articles</h1>
+      <p class="blog-subtitle">Découvrez nos derniers articles et actualités</p>
+    </div>
+  </section>
+
+  <!-- Articles Section -->
+  <section class="articles-section">
+    <div class="container">
+      <h2 class="section-title">Derniers Articles</h2>
+      
+      <div class="articles-grid">
+        <article class="article-card" *ngFor="let article of articles">
+          <div class="article-image">
+            <img [src]="article.imageUrl" [alt]="article.title" />
+            <div class="article-overlay">
+              <span class="read-time">{{ article.readTime }}</span>
+            </div>
+          </div>
+          
+          <div class="article-content">
+            <div class="article-meta">
+              <span class="publish-date">{{ article.publishDate }}</span>
+              <span class="author">Par {{ article.author }}</span>
+            </div>
+            
+            <h3 class="article-title">{{ article.title }}</h3>
+            
+            <p class="article-description">{{ article.description }}</p>
+            
+            <div class="article-footer">
+              <a href="#" class="read-more-btn">Lire la suite</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>

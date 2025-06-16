@@ -1,1 +1,104 @@
-<p>home works!</p>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing</h1>
+    <p class="hero-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary">Lorem Ipsum</button>
+      <button class="btn btn-secondary">Dolor Sit Amet</button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-placeholder">
+      <img src="logo.png" alt="App Logo" class="hero-logo">
+    </div>
+  </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="statistics-section">
+  <div class="container">
+    <div class="statistics-grid">
+      <div class="stat-card" *ngFor="let stat of statistics">
+        <div class="stat-icon">
+          <i [class]="stat.icon"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">{{ stat.value }}</h3>
+          <p class="stat-label">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Lorem Ipsum Dolor</h2>
+      <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-icon">
+          <i [class]="service.icon"></i>
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          <ul class="service-features">
+            <li *ngFor="let feature of service.features">
+              <i class="pi pi-check"></i>
+              {{ feature }}
+            </li>
+          </ul>
+          <button class="service-btn">Lorem Ipsum</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Lorem Ipsum</h2>
+      <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <div class="testimonial-content">
+          <div class="testimonial-rating">
+            <i class="pi pi-star-fill" *ngFor="let star of [1,2,3,4,5]"></i>
+          </div>
+          <p class="testimonial-text">"{{ testimonial.content }}"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="pi pi-user"></i>
+            </div>
+            <div class="author-info">
+              <h4 class="author-name">{{ testimonial.name }}</h4>
+              <p class="author-role">{{ testimonial.role }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Lorem Ipsum Dolor Sit Amet Consectetur?</h2>
+      <p class="cta-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary btn-large">Lorem Ipsum Dolor</button>
+        <button class="btn btn-outline btn-large">Consectetur Adipiscing</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,6 +5,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { RGPDComponent } from './components/rgpd/rgpd.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
 
 
 
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'faq', component: FAQComponent },
   { path: 'rgpd', component: RGPDComponent },
+  { path: 'newsletter', component: NewsletterComponent },
   { path: '**', redirectTo: '/home' }
 ];
