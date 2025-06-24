@@ -1,5 +1,5 @@
 <div class="blog-reader" *ngIf="article">
-  <!-- Hero Section -->
+
   <section class="hero-section">
     <div class="hero-content">
       <button class="back-btn" (click)="goBack()">
@@ -21,7 +21,7 @@
     </div>
   </section>
 
-  <!-- Article Content -->
+
   <section class="article-section">
     <div class="container">
       <div class="article-image">
@@ -30,7 +30,6 @@
       
       <div class="article-content" [innerHTML]="article.content"></div>
       
-      <!-- Share Section -->
       <div class="share-section">
         <h3>Partager cet article</h3>
         <div class="share-buttons">
@@ -51,7 +50,7 @@
     </div>
   </section>
 
-  <!-- Related Articles -->
+
   <section class="related-section" *ngIf="relatedArticles.length > 0">
     <div class="container">
       <h2 class="section-title">Articles similaires</h2>
@@ -78,7 +77,7 @@
   </section>
 </div>
 
-<!-- Article Not Found -->
+
 <div class="not-found" *ngIf="!article">
   <div class="container">
     <h1>Article non trouvé</h1>
