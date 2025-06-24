@@ -1,0 +1,91 @@
+<div class="blog-reader" *ngIf="article">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <button class="back-btn" (click)="goBack()">
+        <i class="pi pi-arrow-left"></i>
+        Retour au blog
+      </button>
+      
+      <div class="article-meta">
+        <span class="publish-date">{{ article.publishDate }}</span>
+        <span class="read-time">{{ article.readTime }} de lecture</span>
+        <span class="author">Par {{ article.author }}</span>
+      </div>
+      
+      <h1 class="article-title">{{ article.title }}</h1>
+      
+      <div class="article-tags">
+        <span class="tag" *ngFor="let tag of article.tags">{{ tag }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="article-section">
+    <div class="container">
+      <div class="article-image">
+        <img [src]="article.imageUrl" [alt]="article.title" />
+      </div>
+      
+      <div class="article-content" [innerHTML]="article.content"></div>
+      
+      <!-- Share Section -->
+      <div class="share-section">
+        <h3>Partager cet article</h3>
+        <div class="share-buttons">
+          <button class="share-btn twitter">
+            <i class="pi pi-twitter"></i>
+            Twitter
+          </button>
+          <button class="share-btn linkedin">
+            <i class="pi pi-linkedin"></i>
+            LinkedIn
+          </button>
+          <button class="share-btn facebook">
+            <i class="pi pi-facebook"></i>
+            Facebook
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Articles -->
+  <section class="related-section" *ngIf="relatedArticles.length > 0">
+    <div class="container">
+      <h2 class="section-title">Articles similaires</h2>
+      
+      <div class="related-grid">
+        <article class="related-card" *ngFor="let relatedArticle of relatedArticles" (click)="navigateToArticle(relatedArticle.id)">
+          <div class="related-image">
+            <img [src]="relatedArticle.imageUrl" [alt]="relatedArticle.title" />
+          </div>
+          
+          <div class="related-content">
+            <div class="related-meta">
+              <span class="publish-date">{{ relatedArticle.publishDate }}</span>
+              <span class="read-time">{{ relatedArticle.readTime }}</span>
+            </div>
+            
+            <h3 class="related-title">{{ relatedArticle.title }}</h3>
+            
+            <p class="related-description">{{ relatedArticle.description }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Article Not Found -->
+<div class="not-found" *ngIf="!article">
+  <div class="container">
+    <h1>Article non trouvé</h1>
+    <p>L'article que vous recherchez n'existe pas ou a été supprimé.</p>
+    <button class="back-btn" (click)="goBack()">
+      <i class="pi pi-arrow-left"></i>
+      Retour au blog
+    </button>
+  </div>
+</div>

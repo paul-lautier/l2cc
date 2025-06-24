@@ -207,10 +207,12 @@
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   padding: 12px 25px;
+  border: none;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
+  cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }

@@ -5,6 +5,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { RGPDComponent } from './components/rgpd/rgpd.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { BlogReaderComponent } from './components/blog-reader/blog-reader.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { TarifsComponent } from './components/tarifs/tarifs.component';
 
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogReaderComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'faq', component: FAQComponent },
   { path: 'tarifs', component: TarifsComponent },

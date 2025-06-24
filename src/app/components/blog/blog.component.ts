@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 interface BlogArticle {
   id: number;
@@ -13,11 +14,14 @@ interface BlogArticle {
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })
 export class BlogComponent {
+  
+  constructor(private router: Router) {}
   articles: BlogArticle[] = [
     {
       id: 1,
@@ -47,4 +51,8 @@ export class BlogComponent {
       readTime: '4 min'
     }
   ];
+  
+  readMore(articleId: number): void {
+    this.router.navigate(['/blog', articleId]);
+  }
 }
