@@ -13,8 +13,8 @@ export class TarifsComponent {
 
   plans = [
     {
-      id: 'basic',
-      name: 'Basic',
+      id: 'basique',
+      name: 'Basique',
       price: '29',
       period: 'mois',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -44,8 +44,8 @@ export class TarifsComponent {
       popular: true
     },
     {
-      id: 'enterprise',
-      name: 'Enterprise',
+      id: 'entreprise',
+      name: 'Entreprise',
       price: '99',
       period: 'mois',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
