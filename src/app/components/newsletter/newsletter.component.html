@@ -1,27 +1,26 @@
-<!-- Hero Section -->
+
 <section class="hero-section">
   <div class="hero-content">
-    <h1 class="hero-title">Social Media Feed</h1>
-    <p class="hero-subtitle">Stay updated with our latest posts from Instagram and LinkedIn</p>
+    <h1 class="hero-title">Réseau Sociaux</h1>
+    <p class="hero-subtitle">Restez au courant de mon actualité en me suivant  sur Instagram and LinkedIn</p>
     <button class="refresh-btn" (click)="refreshFeed()" [disabled]="loading">
       <i class="pi pi-refresh" [class.spinning]="loading"></i>
-      Refresh Feed
+      Rafraichir
     </button>
   </div>
 </section>
 
-<!-- Social Media Feed Section -->
 <section class="feed-section">
   <div class="container">
-    <!-- Loading State -->
+
     <div *ngIf="loading" class="loading-container">
       <div class="loading-spinner">
         <i class="pi pi-spin pi-spinner"></i>
       </div>
-      <p class="loading-text">Loading social media posts...</p>
+      <p class="loading-text">Chargements des posts</p>
     </div>
 
-    <!-- Error State -->
+
     <div *ngIf="error && !loading" class="error-container">
       <div class="error-icon">
         <i class="pi pi-exclamation-triangle"></i>
@@ -29,20 +28,20 @@
       <p class="error-text">{{ error }}</p>
       <button class="retry-btn" (click)="refreshFeed()">
         <i class="pi pi-refresh"></i>
-        Try Again
+        réssayer
       </button>
     </div>
 
-    <!-- Feed Content -->
+
     <div *ngIf="!loading && !error" class="feed-container">
       <div class="feed-header">
-        <h2 class="feed-title">Latest Posts</h2>
+        <h2 class="feed-title">Posts les plus récent</h2>
         <div class="feed-stats">
           <span class="post-count">{{ socialPosts.length }} posts</span>
           <div class="platform-filters">
             <button class="filter-btn active">
               <i class="pi pi-globe"></i>
-              All
+              tout
             </button>
             <button class="filter-btn">
               <i class="pi pi-instagram"></i>
@@ -58,7 +57,7 @@
 
       <div class="posts-grid">
         <article class="post-card" *ngFor="let post of socialPosts; trackBy: trackByPostId">
-          <!-- Post Header -->
+
           <div class="post-header">
             <div class="author-info">
               <img [src]="post.author.profileImage" [alt]="post.author.name" class="author-avatar">
@@ -102,7 +101,7 @@
             </div>
             <a [href]="post.postUrl" target="_blank" rel="noopener noreferrer" class="view-post-btn">
               <i class="pi pi-external-link"></i>
-              View Post
+              Ouvrir le Post
             </a>
           </div>
         </article>
@@ -113,8 +112,8 @@
         <div class="empty-icon">
           <i class="pi pi-inbox"></i>
         </div>
-        <h3 class="empty-title">No posts found</h3>
-        <p class="empty-text">Check back later for new content from our social media channels.</p>
+        <h3 class="empty-title">aucun Post trouver</h3>
+        <p class="empty-text">Revener plus tard pour plus de contenue.</p>
       </div>
     </div>
   </div>
@@ -124,8 +123,8 @@
 <section class="newsletter-section">
   <div class="container">
     <div class="newsletter-content">
-      <h2 class="newsletter-title">Stay Connected</h2>
-      <p class="newsletter-subtitle">Subscribe to our newsletter for exclusive content and updates</p>
+      <h2 class="newsletter-title">Restons connecter</h2>
+      <p class="newsletter-subtitle">Abonnez vous a ma Newsletter pour suivre mon avancé et opportunitées</p>
       <div class="newsletter-form">
         <div class="form-group">
           <input type="email" placeholder="Enter your email address" class="email-input">
@@ -134,7 +133,7 @@
             Subscribe
           </button>
         </div>
-        <p class="newsletter-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+        <p class="newsletter-disclaimer">Nous respectons votre . Désinscrivez vous a tout moment.</p>
       </div>
     </div>
   </div>
