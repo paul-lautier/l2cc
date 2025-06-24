@@ -6,6 +6,7 @@ import { FAQComponent } from './components/faq/faq.component';
 import { RGPDComponent } from './components/rgpd/rgpd.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { TarifsComponent } from './components/tarifs/tarifs.component';
 
 
 
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'faq', component: FAQComponent },
+  { path: 'tarifs', component: TarifsComponent },
   { path: 'rgpd', component: RGPDComponent },
   { path: 'newsletter', component: NewsletterComponent },
   { path: '**', redirectTo: '/home' }
