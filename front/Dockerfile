@@ -12,7 +12,7 @@ FROM nginx:alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /app/dist/your-project-name /usr/share/nginx/html
+COPY --from=build /app/dist/l2cc /usr/share/nginx/html
 
 EXPOSE 80
 
